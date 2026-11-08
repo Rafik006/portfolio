@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;1,400&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  overflow-x: hidden;
+}
+html,
+body,
+#root {
+  height: 100%;
+}
+.container {
+  max-width: 100%;
+
+  margin: auto;
+
+}
+
+section {
+  padding: 50px 0;
+}
+a{
+  text-decoration: none  ;
+}
+.landing-page {
+  transform: scale(1);
+  transition: transform 1s ease-in-out;
+}
+
+.landing-page.zoom-out {
+  transform: scale(0);
+}
+.body-container {
+  transform: scale(0);
+  transition: transform 1.5s ease-in-out;
+}
+
+.body-container.zoom-in {
+  transform: scale(1);
+  transition: transform 1.5s ease-in-out;
+}
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.landing-page .vanta-canvas {
+  z-index: 1 !important;
+}
+
+.gradient-text span {
+  background: linear-gradient(45deg, #ff8660, #8000ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+@media (max-width: 640px) {
+  .projects {
+    display: flex;
+    flex-direction: column;
+  }
+  .card{
+    width: 90%;
+  }
+}
+  
