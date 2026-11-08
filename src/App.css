@@ -1,84 +1,252 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;1,400&display=swap");
+@tailwind base;
+@tailwind components;
 
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+/* Self-hosted fonts (latin subsets from the @fontsource packages, served from public/fonts).
+   The three hero faces are preloaded in index.html, so text is painted with the right metrics. */
+@font-face { font-family: "Space Grotesk"; font-style: normal; font-weight: 500; font-display: swap; src: url(/portfolio/fonts/space-grotesk-latin-500-normal.woff2) format("woff2"); }
+@font-face { font-family: "Space Grotesk"; font-style: normal; font-weight: 700; font-display: swap; src: url(/portfolio/fonts/space-grotesk-latin-700-normal.woff2) format("woff2"); }
+@font-face { font-family: Inter; font-style: normal; font-weight: 400; font-display: swap; src: url(/portfolio/fonts/inter-latin-400-normal.woff2) format("woff2"); }
+@font-face { font-family: Inter; font-style: normal; font-weight: 500; font-display: swap; src: url(/portfolio/fonts/inter-latin-500-normal.woff2) format("woff2"); }
+@font-face { font-family: Inter; font-style: normal; font-weight: 600; font-display: swap; src: url(/portfolio/fonts/inter-latin-600-normal.woff2) format("woff2"); }
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 400; font-display: swap; src: url(/portfolio/fonts/jetbrains-mono-latin-400-normal.woff2) format("woff2"); }
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 500; font-display: swap; src: url(/portfolio/fonts/jetbrains-mono-latin-500-normal.woff2) format("woff2"); }
+
+:root {
+  /* theme tokens (space-separated RGB so Tailwind can add alpha) */
+  --c-bg: 255 255 255;
+  --c-alt: 244 246 248;
+  --c-card: 255 255 255;
+  --c-fg: 11 11 15;
+  --c-muted: 91 100 112;
+  --c-primary: 11 122 122;
+  --nav-active: #0a6868;
+  --btn-hover-bg: #0b7a7a;
+  --btn-hover-fg: #ffffff;
+  --grad-a: #0b7a7a;
+  --grad-b: #2cc4c4;
+  --section-dark: #0b0b0f;
+  /* fixed brand colours */
+  --teal: #0b7a7a;
+  --teal-2: #2cc4c4;
+  --ink: #0b0b0f;
+  --ink-2: #15151b;
+  --muted: #5b6470;
+  --line: rgba(11, 11, 15, 0.1);
+  --line-dark: rgba(255, 255, 255, 0.1);
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-body: Inter, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+html.dark {
+  --c-bg: 17 19 24;
+  --c-alt: 22 25 31;
+  --c-card: 26 29 36;
+  --c-fg: 232 236 241;
+  --c-muted: 160 168 179;
+  --c-primary: 44 196 196;
+  --nav-active: #2cc4c4;
+  --btn-hover-bg: #2cc4c4;
+  --btn-hover-fg: #0b0b0f;
+  --grad-a: #2cc4c4;
+  --grad-b: #9be7e7;
+  --section-dark: #0a0b0e;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 88px; position: relative; }
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: var(--font-body);
+  color: rgb(var(--c-fg));
+  background: rgb(var(--c-bg));
+  transition: background-color 0.35s ease, color 0.35s ease;
   overflow-x: hidden;
-}
-html,
-body,
-#root {
-  height: 100%;
-}
-.container {
-  max-width: 100%;
-
-  margin: auto;
-
-}
-
-section {
-  padding: 50px 0;
-}
-a{
-  text-decoration: none  ;
-}
-.landing-page {
-  transform: scale(1);
-  transition: transform 1s ease-in-out;
-}
-
-.landing-page.zoom-out {
-  transform: scale(0);
-}
-.body-container {
-  transform: scale(0);
-  transition: transform 1.5s ease-in-out;
-}
-
-.body-container.zoom-in {
-  transform: scale(1);
-  transition: transform 1.5s ease-in-out;
-}
-body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-@tailwind base;
-@tailwind components;
+h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.02em; }
+a { text-decoration: none; color: inherit; }
+::selection { background: rgba(44, 196, 196, 0.35); }
+:focus-visible { outline: 2px solid var(--teal-2); outline-offset: 3px; border-radius: 6px; }
+
+/* ---------- layout primitives ---------- */
+.container-x { width: 100%; max-width: 72rem; margin: 0 auto; padding-left: 1.25rem; padding-right: 1.25rem; }
+@media (min-width: 768px) { .container-x { padding-left: 2rem; padding-right: 2rem; } }
+.section { padding: clamp(4.5rem, 10vw, 8rem) 0; position: relative; }
+.section-dark { background: var(--section-dark); color: #fff; --grad-a: #2cc4c4; --grad-b: #9be7e7; }
+.section-dark .text-muted { color: #a5adb8; }
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgb(var(--c-primary));
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.eyebrow::before { content: ""; width: 2rem; height: 1px; background: currentColor; opacity: 0.7; }
+.section-dark .eyebrow { color: var(--teal-2); }
+
+.h-section { font-size: clamp(2rem, 4.6vw, 3.4rem); line-height: 1.02; font-weight: 700; margin-top: 1rem; }
+.lead { color: rgb(var(--c-muted)); font-size: 1.1rem; line-height: 1.65; max-width: 40rem; margin-top: 1.1rem; }
+
+/* ---------- buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-family: var(--font-display); font-weight: 700; font-size: 1rem;
+  padding: 0.9rem 1.5rem; border-radius: 999px; border: 2px solid transparent;
+  transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer; white-space: nowrap;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(0); }
+.btn-primary { background: rgb(var(--c-fg)); color: rgb(var(--c-bg)); }
+.btn-primary:hover { background: var(--btn-hover-bg); color: var(--btn-hover-fg); box-shadow: 0 16px 40px -16px rgba(11, 122, 122, 0.7); }
+.btn-ghost { border-color: rgb(var(--c-fg)); color: rgb(var(--c-fg)); background: rgb(var(--c-bg) / 0.6); backdrop-filter: blur(6px); }
+.btn-ghost:hover { border-color: rgb(var(--c-primary)); color: rgb(var(--c-primary)); }
+.section-dark .btn-primary { background: var(--teal-2); color: var(--ink); }
+.section-dark .btn-primary:hover { background: #fff; box-shadow: 0 16px 40px -16px rgba(44, 196, 196, 0.7); }
+.section-dark .btn-ghost { border-color: rgba(255, 255, 255, 0.35); color: #fff; background: transparent; }
+.section-dark .btn-ghost:hover { border-color: var(--teal-2); color: var(--teal-2); }
+.btn-sm { padding: 0.55rem 1rem; font-size: 0.9rem; }
+
+/* ---------- text effects ---------- */
+/* background-clip: text does not reach inline-block children in Chrome, so the gradient is painted per word. */
+.gradient-text { color: var(--grad-a); }
+.gradient-text .split-word, .gradient-text > .gt {
+  background: linear-gradient(100deg, var(--grad-a) 0%, var(--grad-b) 45%, var(--grad-a) 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: shimmer 6s linear infinite;
+}
+@keyframes shimmer { to { background-position: -200% 0; } }
+
+.split-line { display: inline-block; overflow: hidden; vertical-align: bottom; padding-bottom: 0.08em; margin-bottom: -0.08em; }
+.split-word { display: inline-block; will-change: transform; }
+
+.caret { display: inline-block; width: 0.08em; height: 1em; background: currentColor; margin-left: 0.08em; vertical-align: -0.12em; animation: blink 1s steps(2, start) infinite; }
+@keyframes blink { to { visibility: hidden; } }
+
+/* ---------- cards & chips ---------- */
+.card {
+  background: rgb(var(--c-card)); border: 1px solid rgb(var(--c-fg) / 0.1); border-radius: 1.25rem;
+  box-shadow: 0 1px 2px rgba(11, 11, 15, 0.04);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease, border-color 0.35s ease, background-color 0.35s ease;
+}
+.card:hover { transform: translateY(-4px); box-shadow: 0 1px 2px rgba(11, 11, 15, 0.06), 0 24px 48px -24px rgba(11, 11, 15, 0.25); border-color: rgba(11, 122, 122, 0.35); }
+.section-dark .card { background: var(--ink-2); border-color: var(--line-dark); }
+.section-dark .card:hover { border-color: rgba(44, 196, 196, 0.5); box-shadow: 0 0 0 1px rgba(44, 196, 196, 0.15), 0 24px 60px -24px rgba(44, 196, 196, 0.35); }
+
+.chip {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.01em;
+  padding: 0.35rem 0.7rem; border-radius: 999px;
+  background: rgb(var(--c-primary) / 0.08); color: rgb(var(--c-primary)); border: 1px solid rgb(var(--c-primary) / 0.18);
+}
+.section-dark .chip { background: rgba(44, 196, 196, 0.1); color: var(--teal-2); border-color: rgba(44, 196, 196, 0.2); }
+.chip svg { width: 0.95em; height: 0.95em; }
+
+.tag { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; }
+.tag-agents { color: #7e22ce; }
+.tag-voice { color: var(--teal); }
+.tag-platform, .tag-platforms { color: #b45309; }
+.section-dark .tag-agents, html.dark .tag-agents { color: #c084fc; }
+.section-dark .tag-voice, html.dark .tag-voice { color: var(--teal-2); }
+.section-dark .tag-platform, .section-dark .tag-platforms, html.dark .tag-platform, html.dark .tag-platforms { color: #fbbf24; }
+/* the story modal is a light panel inside a dark section, in light mode only */
+html:not(.dark) .section-dark .modal-panel .tag-agents { color: #7e22ce; }
+html:not(.dark) .section-dark .modal-panel .tag-voice { color: var(--teal); }
+html:not(.dark) .section-dark .modal-panel .tag-platform { color: #b45309; }
+
+.glass { background: rgb(var(--c-bg) / 0.72); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgb(var(--c-fg) / 0.08); }
+
+/* ---------- vanta hosts ---------- */
+.vanta-host { position: relative; }
+.vanta-host > .vanta-canvas { position: absolute !important; inset: 0; z-index: 0 !important; }
+.vanta-host > * { position: relative; z-index: 1; }
+
+/* ---------- hero ---------- */
+.scroll-cue { position: absolute; left: 50%; bottom: 1.5rem; transform: translateX(-50%); z-index: 2; display: inline-flex; flex-direction: column; align-items: center; gap: 0.4rem; color: rgb(var(--c-muted)); font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; }
+.scroll-cue .mouse { width: 22px; height: 34px; border: 2px solid currentColor; border-radius: 12px; position: relative; }
+.scroll-cue .mouse::after { content: ""; position: absolute; left: 50%; top: 6px; width: 3px; height: 7px; margin-left: -1.5px; border-radius: 2px; background: currentColor; animation: wheel 1.6s ease-in-out infinite; }
+@keyframes wheel { 0% { transform: translateY(0); opacity: 1; } 70% { transform: translateY(10px); opacity: 0; } 100% { opacity: 0; } }
+
+/* ---------- about ---------- */
+.portrait-ring { position: relative; width: 260px; height: 260px; border-radius: 50%; overflow: hidden; box-shadow: 0 24px 60px -28px rgba(11, 11, 15, 0.45); }
+.portrait-ring img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ---------- marquee ---------- */
+.marquee { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
+.marquee-track { display: flex; gap: 2.5rem; width: max-content; animation: marquee 38s linear infinite; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+.marquee-reverse .marquee-track { animation-direction: reverse; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+.marquee-item { display: inline-flex; align-items: center; gap: 0.6rem; font-family: var(--font-mono); font-size: 0.85rem; color: #a5adb8; white-space: nowrap; }
+.marquee-item svg { width: 1.35rem; height: 1.35rem; color: #fff; }
+
+/* ---------- timeline ---------- */
+.timeline { position: relative; }
+.timeline-rail { position: absolute; top: 0; bottom: 0; left: 11px; width: 2px; background: rgb(var(--c-fg) / 0.1); }
+.timeline-fill { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(var(--teal), var(--teal-2)); transform-origin: top; }
+.timeline-node { position: relative; padding-left: 3rem; }
+.timeline-dot { position: absolute; left: 0; top: 0.35rem; width: 24px; height: 24px; border-radius: 50%; background: rgb(var(--c-card)); border: 2px solid rgb(var(--c-primary)); display: grid; place-items: center; }
+.timeline-dot::after { content: ""; width: 8px; height: 8px; border-radius: 50%; background: rgb(var(--c-primary)); }
+.timeline-dot.pulse::before { content: ""; position: absolute; inset: -6px; border-radius: 50%; border: 2px solid rgba(44, 196, 196, 0.6); animation: pulse 2s ease-out infinite; }
+@keyframes pulse { 0% { transform: scale(0.6); opacity: 1; } 100% { transform: scale(1.6); opacity: 0; } }
+@media (min-width: 1024px) {
+  .timeline-rail { left: 50%; margin-left: -1px; }
+  .timeline-node { width: 50%; padding-left: 0; padding-right: 3.5rem; }
+  .timeline-node .timeline-dot { left: auto; right: -12px; }
+  .timeline-node.right { margin-left: 50%; padding-right: 0; padding-left: 3.5rem; }
+  .timeline-node.right .timeline-dot { right: auto; left: -12px; }
+}
+
+/* single-column variant: rail on the left at every width */
+.timeline-left .timeline-rail { left: 11px; margin-left: 0; }
+.timeline-left .timeline-node { width: auto; margin-left: 0; padding-left: 3rem; padding-right: 0; }
+.timeline-left .timeline-node .timeline-dot { left: 0; right: auto; }
+
+/* ---------- flip card (earlier work) ---------- */
+/* The flip is driven by React state on the outer frame (which never moves), not by :hover on a rotating
+   face, so the hit target stays put. Only the visible face takes pointer events. */
+.flip { perspective: 1200px; }
+.flip-inner { position: relative; transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1); transform-style: preserve-3d; }
+.flip-inner.is-flipped { transform: rotateY(180deg); }
+.flip-face { position: absolute; inset: 0; overflow: hidden; border-radius: 1.25rem; border: 1px solid rgb(var(--c-fg) / 0.1); backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.flip-back { transform: rotateY(180deg); pointer-events: none; }
+.flip-inner.is-flipped .flip-back { pointer-events: auto; }
+.flip-inner.is-flipped .flip-front { pointer-events: none; }
+
+/* ---------- story modal ---------- */
+.modal-backdrop { position: fixed; inset: 0; z-index: 60; background: rgba(11, 11, 15, 0.72); backdrop-filter: blur(6px); display: grid; place-items: center; padding: 1rem; }
+.modal-panel { width: min(100%, 52rem); max-height: calc(100vh - 2rem); overflow-y: auto; background: rgb(var(--c-card)); color: rgb(var(--c-fg)); border-radius: 1.5rem; box-shadow: 0 40px 100px -30px rgba(0, 0, 0, 0.6); }
+.prose-story p { color: rgb(var(--c-fg) / 0.85); line-height: 1.75; font-size: 1.02rem; }
+.prose-story p + p { margin-top: 0.8rem; }
+.prose-story h4 { font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgb(var(--c-primary)); margin: 1.6rem 0 0.5rem; }
+
+.story-list { list-style: none; }
+.story-list li { position: relative; padding-left: 1.15rem; color: rgb(var(--c-fg) / 0.85); line-height: 1.7; font-size: 1rem; }
+.story-list li + li { margin-top: 0.45rem; }
+.story-list li::before { content: ""; position: absolute; left: 0; top: 0.72em; width: 6px; height: 6px; border-radius: 50%; background: rgb(var(--c-primary)); }
+/* light mode: the modal is a light panel inside a dark section, so undo the dark-section overrides */
+html:not(.dark) .section-dark .modal-panel .text-muted { color: rgb(var(--c-muted)); }
+html:not(.dark) .section-dark .modal-panel .chip { background: rgb(var(--c-primary) / 0.08); color: rgb(var(--c-primary)); border-color: rgb(var(--c-primary) / 0.18); }
+
+/* ---------- nav ---------- */
+.nav-link { position: relative; font-weight: 500; color: rgb(var(--c-fg)); padding: 0.25rem 0; transition: color 0.2s ease; }
+.nav-link::after { content: ""; position: absolute; left: 0; right: 0; bottom: -4px; height: 2px; background: rgb(var(--c-primary)); transform: scaleX(0); transform-origin: left; transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1); }
+.nav-link:hover, .nav-link.active { color: var(--nav-active); }
+.nav-link.active::after, .nav-link:hover::after { transform: scaleX(1); }
+.brand-mark { width: 0.75rem; height: 0.75rem; background: var(--teal); transform: rotate(45deg); border-radius: 2px; display: inline-block; box-shadow: 0 0 0 4px rgba(44, 196, 196, 0.2); }
+.brand-name { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; letter-spacing: -0.01em; white-space: nowrap; }
+
+/* ---------- motion safety ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
+
+/* utilities last so `hidden`, `sm:inline-flex` and friends win over the component classes above */
 @tailwind utilities;
-
-.landing-page .vanta-canvas {
-  z-index: 1 !important;
-}
-
-.gradient-text span {
-  background: linear-gradient(45deg, #ff8660, #8000ff);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  display: inline-block;
-}
-@media (max-width: 640px) {
-  .projects {
-    display: flex;
-    flex-direction: column;
-  }
-  .card{
-    width: 90%;
-  }
-}
-  
-
-/* --- brand mark in the navbar (replaces the external logo image) --- */
-.brand-mark { width: 0.75rem; height: 0.75rem; background: #000; transform: rotate(45deg); border-radius: 2px; display: inline-block; }
-.brand-name { font-family: 'Georgia', 'Times New Roman', serif; font-size: 1.35rem; font-weight: 600; letter-spacing: -0.01em; white-space: nowrap; }

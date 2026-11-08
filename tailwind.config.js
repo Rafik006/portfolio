@@ -1,62 +1,31 @@
 /** @type {import('tailwindcss').Config} */
-const colors = require('tailwindcss/colors')
 export default {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  darkMode: "class",
+  content: ["./index.html", "./src/**/*.{js,jsx}"],
   theme: {
     extend: {
+      // theme-aware tokens resolve to CSS variables set in App.css (light on :root, dark on html.dark)
       colors: {
-        primaryColor: "#8873ef",
-        headingColor: "#081e21",
-        smallTextColor: "#193256",
+        primaryColor: "rgb(var(--c-primary) / <alpha-value>)",
+        accent: "#2CC4C4",
+        ink: "rgb(var(--c-fg) / <alpha-value>)",
+        muted: "rgb(var(--c-muted) / <alpha-value>)",
+        mist: "rgb(var(--c-alt) / <alpha-value>)",
+        paper: "rgb(var(--c-bg) / <alpha-value>)",
+        card: "rgb(var(--c-card) / <alpha-value>)",
+        night: "#0b0b0f",
       },
       fontFamily: {
-        display: ['Inter', 'system-ui', 'sans-serif'],
-        body: ['Inter', 'system-ui', 'sans-serif'],
+        display: ['"Space Grotesk"', "system-ui", "sans-serif"],
+        body: ["Inter", "system-ui", "sans-serif"],
+        mono: ['"JetBrains Mono"', "ui-monospace", "SFMono-Regular", "monospace"],
       },
-      extend: {
-        colors:{
-          fuchsia:colors.fuchsia,
-          cyan:colors.cyan,
-          emerald:colors.emerald,
-          teal:colors.teal,
-          orange:colors.orange,
-          yellow:colors.yellow,
-        },
-        maxHeight:{
-          116:"29rem", /*464px*/
-          125:"31.25rem", /*500px*/
-          140:"35rem", /*560px*/
-          150:"37.5rem", /*600px*/
-          190:"47.5rem", /*760px*/
-        },
-        height:{
-          116:"29rem", /*464px*/
-          125:"31.25rem", /*500px*/
-          140:"35rem", /*560px*/
-          150:"37.5rem", /*600px*/
-        },
-        minHeight:{
-          18:"4.5rem", /*72*/
-          62:"15.5rem", /*248px*/
-          150:"37.5rem", /*600px*/
-        },
+      boxShadow: {
+        glow: "0 0 0 1px rgba(44,196,196,.35), 0 24px 60px -24px rgba(11,122,122,.45)",
+        card: "0 1px 2px rgba(11,11,15,.06), 0 12px 32px -16px rgba(11,11,15,.18)",
       },
+      maxWidth: { page: "72rem" },
     },
-    variants: {
-      extend: {
-        display: ["group-hover"],
-        opacity: ["group-hover"],
-        translate: ["group-hover"],
-        transform: ["group-hover"],
-        width: ["group-hover", "hover"],
-        height: ["group-hover", "hover"],
-        padding: ["group-hover", "hover"],
-        animation: ["group-hover", "hover"],
-        scale: ["group-hover", "hover"],
-      },
-    },  
-    },
-      
-
+  },
   plugins: [],
 };

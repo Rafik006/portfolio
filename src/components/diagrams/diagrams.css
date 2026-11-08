@@ -1,0 +1,17 @@
+/* One visual grammar for every story diagram. */
+.dg { width: 100%; height: auto; display: block; font-family: var(--font-mono); }
+.dg-box { fill: rgb(var(--c-card)); stroke: rgb(var(--c-fg)); stroke-width: 1.25; }
+.dg-box-accent { fill: rgba(44, 196, 196, 0.12); stroke: rgb(var(--c-primary)); stroke-width: 1.5; }
+.dg-box-muted { fill: none; stroke: #9aa3ad; stroke-width: 1; stroke-dasharray: 4 3; }
+.dg-label { font-family: var(--font-body); font-size: 12px; font-weight: 600; fill: rgb(var(--c-fg)); }
+.dg-small { font-size: 10.5px; fill: rgb(var(--c-muted)); }
+.dg-accent-text { font-size: 10.5px; font-weight: 600; fill: rgb(var(--c-primary)); letter-spacing: 0.04em; }
+.dg-arrow { fill: none; stroke: rgb(var(--c-fg)); stroke-width: 1.25; marker-end: url(#dg-arrowhead); }
+.dg-arrow-accent { fill: none; stroke: rgb(var(--c-primary)); stroke-width: 1.5; marker-end: url(#dg-arrowhead-accent); }
+.dg-arrow-dead { fill: none; stroke: #c0392b; stroke-width: 1.25; stroke-dasharray: 4 3; marker-end: url(#dg-arrowhead-dead); }
+.dg-bar { fill: #9aa3ad; }
+.dg-bar-accent { fill: rgb(var(--c-primary)); }
+.dg-head { fill: rgb(var(--c-fg)); }
+.dg-head-accent { fill: rgb(var(--c-primary)); }
+.dg-head-dead { fill: #c0392b; }
+.dg-defs { position: absolute; width: 0; height: 0; overflow: hidden; }

@@ -1,8 +1,32 @@
-# React + Vite
+# rafik006.github.io/portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio of Rafik Mhadhbi — full-stack engineer, AI agents in production, real-time voice.
 
-Currently, two official plugins are available:
+Live: https://rafik006.github.io/portfolio/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Stack
+
+- React 18 + Vite 5, Tailwind 3
+- framer-motion for reveals, the timeline, the story modal and the tilt cards
+- Vanta (globe / birds) on three.js 0.134, loaded lazily and only when motion is allowed
+- react-icons, named imports only
+
+## Content
+
+Everything the page says lives in two files:
+
+- `src/data/content.js` — profile, experience eras, ventures, skills, projects
+- `src/data/stories.js` — the eight engineering stories; their diagrams are React SVG components in `src/components/diagrams/`
+
+The CV PDFs are served from `public/cv/`.
+
+## Develop
+
+```bash
+nvm use            # Node 20 (.nvmrc)
+npm ci --legacy-peer-deps
+npm run dev        # http://127.0.0.1:5173/portfolio/
+npm run build      # dist/
+```
+
+Deployment: pushing `main` runs `.github/workflows/deploy.yml`, which builds and publishes `dist/` to the `gh-pages` branch.
