@@ -54,7 +54,7 @@ function ExprienceSection() {
                   {item.link && (
                     <button className="font-[600] bg-black  text-white text-base border-solid border-2 border-primaryColor p-3   mt-3 rounded-xl hover:bg-white hover:text-black transition-all duration-300 ease-in-out">
                       <a href={item.link} target="_blank">
-                        Visite website
+                        Visit website
                       </a>
                     </button>
                   )}
@@ -106,7 +106,7 @@ function ExprienceSection() {
                   {item.link && (
                     <button className="font-[600] bg-black  text-white text-base border-solid border-2 border-primaryColor p-3   mt-3  rounded-xl  hover:bg-white hover:text-black transition-all duration-300 ease-in-out">
                       <a href={item.link} target="_blank">
-                        Visite website
+                        Visit website
                       </a>
                     </button>
                   )}

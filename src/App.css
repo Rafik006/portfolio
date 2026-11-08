@@ -78,3 +78,7 @@ body {
   }
 }
   
+
+/* --- brand mark in the navbar (replaces the external logo image) --- */
+.brand-mark { width: 0.75rem; height: 0.75rem; background: #000; transform: rotate(45deg); border-radius: 2px; display: inline-block; }
+.brand-name { font-family: 'Georgia', 'Times New Roman', serif; font-size: 1.35rem; font-weight: 600; letter-spacing: -0.01em; white-space: nowrap; }

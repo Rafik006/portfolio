@@ -1,16 +1,16 @@
 import React, { useEffect, useRef, useState } from "react";
 import Template from "../../animation/Test.jsx";
+import * as THREE from "three";
 import GLOBE from "vanta/dist/vanta.globe.min.js";
-import BIRDS from "vanta/dist/vanta.birds.min";
 
 const Landing_Page = ({ onStartClick, className }) => {
   const [vantaEffect, setVantaEffect] = useState(null);
   const myRef = useRef(null);
   useEffect(() => {
     if (!vantaEffect) {
-      console.log("test");
       setVantaEffect(
         GLOBE({
+          THREE,
           el: myRef.current,
           mouseControls: true,
           touchControls: true,
@@ -53,7 +53,7 @@ const Landing_Page = ({ onStartClick, className }) => {
             type={"paragraph"}
           />
         </div>
-        {/* <a href="#" class="bg-yellow-400 text-gray-900 hover:bg-yellow-300 py-2 px-6 rounded-full text-lg font-semibold transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg">Get Started</a> */}
+        {/* <a href="#" className="bg-yellow-400 text-gray-900 hover:bg-yellow-300 py-2 px-6 rounded-full text-lg font-semibold transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg">Get Started</a> */}
         <button
           className="font-[600]  text-xl border-solid border-2 border-primaryColor p-4 rounded-xl bg-black hover:bg-white hover:text-black  hover:p-[10px] transition-all duration-300 ease-in-out"
           onClick={onStartClick}

@@ -19,7 +19,7 @@ export const Experience = [
   },
   {
     company: "RebootKamp",
-    date: "Juin 2022 - Present",
+    date: "June 2022 - Present",
     discription: [
       "I teach and guide individuals to master JavaScript and its frameworks",
       "paving the way for their success in web development.",

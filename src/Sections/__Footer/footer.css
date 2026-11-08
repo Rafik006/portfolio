@@ -146,3 +146,11 @@ transition: 0.8s ease-in-out;
   width: 8em;
 
 }
+
+/* --- added: footer without video/newsletter --- */
+.footer_sub { color: #6b7280; margin: 0.5rem 0 1rem; font-size: 0.95rem; }
+.footer_links { display: flex; gap: 1.25rem; list-style: none; padding: 0; margin: 0; font-weight: 600; }
+.footer_links a { text-decoration: none; color: inherit; border-bottom: 2px solid transparent; }
+.footer_links a:hover { border-bottom-color: currentColor; }
+.footer_copy { color: #6b7280; font-size: 0.9rem; }
+.to-top { display: inline-flex; }

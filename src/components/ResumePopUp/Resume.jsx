@@ -7,11 +7,11 @@ const Resume = () => {
         type="button"
         data-modal-target="crypto-modal"
         data-modal-toggle="crypto-modal"
-        class="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-600 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 "
+        className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-600 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 "
       >
         <svg
           aria-hidden="true"
-          class="w-4 h-4 me-2"
+          className="w-4 h-4 me-2"
           fill="none"
           stroke="currentColor"
           viewBo    x="0 0 24 24"
@@ -32,23 +32,23 @@ const Resume = () => {
         id="crypto-modal"
         tabindex="-1"
         aria-hidden="true"
-        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"
+        className="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"
       >
-        <div class="relative p-4 w-full max-w-md max-h-full">
+        <div className="relative p-4 w-full max-w-md max-h-full">
           {/* <!-- Modal content --> */}
-          <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+          <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
             {/* <!-- Modal header --> */}
-            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-              <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+            <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
                 Connect wallet
               </h3>
               <button
                 type="button"
-                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm h-8 w-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm h-8 w-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
                 data-modal-toggle="crypto-modal"
               >
                 <svg
-                  class="w-3 h-3"
+                  className="w-3 h-3"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -62,24 +62,24 @@ const Resume = () => {
                     d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
                   />
                 </svg>
-                <span class="sr-only">Close modal</span>
+                <span className="sr-only">Close modal</span>
               </button>
             </div>
             {/* <!-- Modal body --> */}
-            <div class="p-4 md:p-5">
-              <p class="text-sm font-normal text-gray-500 dark:text-gray-400">
+            <div className="p-4 md:p-5">
+              <p className="text-sm font-normal text-gray-500 dark:text-gray-400">
                 Connect with one of our available wallet providers or create a
                 new one.
               </p>
-              <ul class="my-4 space-y-3">
+              <ul className="my-4 space-y-3">
                 <li>
                   <a
                     href="#"
-                    class="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white"
+                    className="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white"
                   >
                     <svg
                       aria-hidden="true"
-                      class="h-4"
+                      className="h-4"
                       viewBox="0 0 40 38"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
@@ -201,8 +201,8 @@ const Resume = () => {
                         fill="#F5841F"
                       />
                     </svg>
-                    <span class="flex-1 ms-3 whitespace-nowrap">MetaMask</span>
-                    <span class="inline-flex items-center justify-center px-2 py-0.5 ms-3 text-xs font-medium text-gray-500 bg-gray-200 rounded dark:bg-gray-700 dark:text-gray-400">
+                    <span className="flex-1 ms-3 whitespace-nowrap">MetaMask</span>
+                    <span className="inline-flex items-center justify-center px-2 py-0.5 ms-3 text-xs font-medium text-gray-500 bg-gray-200 rounded dark:bg-gray-700 dark:text-gray-400">
                       Popular
                     </span>
                   </a>
@@ -210,11 +210,11 @@ const Resume = () => {
                 <li>
                   <a
                     href="#"
-                    class="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white"
+                    className="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white"
                   >
                     <svg
                       aria-hidden="true"
-                      class="h-5"
+                      className="h-5"
                       viewBox="0 0 292 292"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
@@ -228,7 +228,7 @@ const Resume = () => {
                         fill="white"
                       />
                     </svg>
-                    <span class="flex-1 ms-3 whitespace-nowrap">
+                    <span className="flex-1 ms-3 whitespace-nowrap">
                       Coinbase Wallet
                     </span>
                   </a>
@@ -236,12 +236,12 @@ const Resume = () => {
                 <li>
                   <a
                     href="#"
-                    class="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white"
+                    className="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white"
                   >
                     <svg
                       aria-hidden="true"
                       svg
-                      class="h-5"
+                      className="h-5"
                       viewBox="0 0 75.591 75.591"
                       xmlns="http://www.w3.org/2000/svg"
                       xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -278,7 +278,7 @@ const Resume = () => {
                         />
                       </g>
                     </svg>
-                    <span class="flex-1 ms-3 whitespace-nowrap">
+                    <span className="flex-1 ms-3 whitespace-nowrap">
                       Opera Wallet
                     </span>
                   </a>
@@ -286,11 +286,11 @@ const Resume = () => {
                 <li>
                   <a
                     href="#"
-                    class="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white"
+                    className="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white"
                   >
                     <svg
                       aria-hidden="true"
-                      class="h-5"
+                      className="h-5"
                       viewBox="0 0 512 512"
                       version="1.1"
                       xmlns="http://www.w3.org/2000/svg"
@@ -335,14 +335,14 @@ const Resume = () => {
                         </g>
                       </g>
                     </svg>
-                    <span class="flex-1 ms-3 whitespace-nowrap">
+                    <span className="flex-1 ms-3 whitespace-nowrap">
                       WalletConnect
                     </span>
                   </a>
                 </li>
                 <svg
                   aria-hidden="true"
-                  class="h-5"
+                  className="h-5"
                   viewBox="0 0 292 292"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -356,17 +356,17 @@ const Resume = () => {
                     fill="white"
                   />
                 </svg>
-                <span class="flex-1 ms-3 whitespace-nowrap">
+                <span className="flex-1 ms-3 whitespace-nowrap">
                   Coinbase Wallet
                 </span>
                 <li>
                   <a
                     href="#"
-                    class="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white"
+                    className="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white"
                   >
                     <svg
                       aria-hidden="true"
-                      class="h-4"
+                      className="h-4"
                       viewBox="0 0 96 96"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
@@ -380,17 +380,17 @@ const Resume = () => {
                         fill="#617BFF"
                       />
                     </svg>
-                    <span class="flex-1 ms-3 whitespace-nowrap">Fortmatic</span>
+                    <span className="flex-1 ms-3 whitespace-nowrap">Fortmatic</span>
                   </a>
                 </li>
               </ul>
               <div>
                 <a
                   href="#"
-                  class="inline-flex items-center text-xs font-normal text-gray-500 hover:underline dark:text-gray-400"
+                  className="inline-flex items-center text-xs font-normal text-gray-500 hover:underline dark:text-gray-400"
                 >
                   <svg
-                    class="w-3 h-3 me-2"
+                    className="w-3 h-3 me-2"
                     aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"

@@ -3,6 +3,7 @@ import Template from "../../animation/Test.jsx";
 import cv from "../../assets/Images/Mhadhbi_Rafik_Resume.pdf";
 import Rafik_Image from "../../assets/Images/MhadhbiRafik_image.jpg";
 import SocialMedia from "../../components/socialMedia/SocialMedia.jsx";
+import * as THREE from "three";
 import BIRDS from "vanta/dist/vanta.birds.min";
 import Resume from "../../components/ResumePopUp/Resume.jsx";
 const About_Me = () => {
@@ -12,6 +13,7 @@ const About_Me = () => {
     if (!vantaEffect) {
       setVantaEffect(
         BIRDS({
+          THREE,
           el: myRef.current,
           mouseControls: true,
           touchControls: true,

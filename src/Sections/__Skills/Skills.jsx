@@ -3,69 +3,69 @@ import "./skills.css";
 import Template from "../../animation/Test.jsx"
 const Skills = () => {
   return (
-    <section id="skills" class="containerr">
-      <div class="skill-box">
-        <span class="title"> <Template info={"HTML"} type={"paragraph"}/> </span>
+    <section id="skills" className="containerr">
+      <div className="skill-box">
+        <span className="title"> <Template info={"HTML"} type={"paragraph"}/> </span>
 
-        <div class="skill-bar">
-          <span class="skill-per html">
-            <span class="tooltip">90%</span>
+        <div className="skill-bar">
+          <span className="skill-per html">
+            <span className="tooltip">90%</span>
           </span>
         </div>
       </div>
-      <div class="skill-box">
-        <span class="title"><Template info={"CSS"} type={"paragraph"}/></span>
+      <div className="skill-box">
+        <span className="title"><Template info={"CSS"} type={"paragraph"}/></span>
 
-        <div class="skill-bar">
-          <span class="skill-per css">
-            <span class="tooltip">100%</span>
+        <div className="skill-bar">
+          <span className="skill-per css">
+            <span className="tooltip">100%</span>
           </span>
         </div>
       </div>
-      <div class="skill-box">
-        <span class="title"><Template info={"javascript"} type={"paragraph"}/> </span>
+      <div className="skill-box">
+        <span className="title"><Template info={"javascript"} type={"paragraph"}/> </span>
 
-        <div class="skill-bar">
-          <span class="skill-per javascript">
-            <span class="tooltip">90%</span>
+        <div className="skill-bar">
+          <span className="skill-per javascript">
+            <span className="tooltip">90%</span>
           </span>
         </div>
       </div>
 
       
-      <div class="skill-box">
-        <span class="title"><Template info={"React"} type={"paragraph"}/></span>
+      <div className="skill-box">
+        <span className="title"><Template info={"React"} type={"paragraph"}/></span>
 
-        <div class="skill-bar">
-          <span class="skill-per React">
-            <span class="tooltip">90%</span>
+        <div className="skill-bar">
+          <span className="skill-per React">
+            <span className="tooltip">90%</span>
           </span>
         </div>
       </div>
-      <div class="skill-box">
-        <span class="title"><Template info={"React Native"} type={"paragraph"}/></span>
+      <div className="skill-box">
+        <span className="title"><Template info={"React Native"} type={"paragraph"}/></span>
 
-        <div class="skill-bar">
-          <span class="skill-per React">
-            <span class="tooltip">90%</span>
+        <div className="skill-bar">
+          <span className="skill-per React">
+            <span className="tooltip">90%</span>
           </span>
         </div>
       </div>
-      <div class="skill-box">
-        <span class="title"> <Template info={"Node Js"} type={"paragraph"}/></span>
+      <div className="skill-box">
+        <span className="title"> <Template info={"Node Js"} type={"paragraph"}/></span>
 
-        <div class="skill-bar">
-          <span class="skill-per nodejs">
-            <span class="tooltip">80%</span>
+        <div className="skill-bar">
+          <span className="skill-per nodejs">
+            <span className="tooltip">80%</span>
           </span>
         </div>
       </div>
-      <div class="skill-box">
-        <span class="title"><Template info={"MYSQL"} type={"paragraph"}/></span>
+      <div className="skill-box">
+        <span className="title"><Template info={"MYSQL"} type={"paragraph"}/></span>
 
-        <div class="skill-bar">
-          <span class="skill-per Mysql">
-            <span class="tooltip">60%</span>
+        <div className="skill-bar">
+          <span className="skill-per Mysql">
+            <span className="tooltip">60%</span>
           </span>
         </div>
       </div>

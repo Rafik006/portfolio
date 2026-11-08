@@ -27,14 +27,13 @@ const NavBar = ({ onStartClick, ContactMe }) => {
     <nav className="bg-white text-center fixed w-full z-10  top-0 start-0 border-b-2 shadow-lg">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2">
         <a
+          href="#about_me"
           onClick={() => onStartClick()}
-          className="flex items-center space-x-3 rtl:space-x-reverse"
+          className="brand flex items-center gap-3 cursor-pointer select-none"
+          aria-label="Rafik Mhadhbi, back to top"
         >
-          <img
-            src="https://www.bobolink.co/storage/news/March2019/Logo.png"
-            className="h-[80px] w-28  cursor-pointer"
-            onClick={onStartClick}
-          />
+          <span className="brand-mark" aria-hidden="true"></span>
+          <span className="brand-name">Rafik Mhadhbi</span>
         </a>
         <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse items-center" ref={dropdownRef}   >
           {ContactMe ? (
